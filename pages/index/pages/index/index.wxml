@@ -1,0 +1,61 @@
+<view class="screen">
+  <view class="hero">
+    <view>
+      <text class="eyebrow">Resume Polish</text>
+      <text class="title">简历润色助手</text>
+      <text class="subtitle">把普通经历改成更像求职简历的表达，适合投兼职、实习和入门岗位。</text>
+    </view>
+    <view class="price">
+      <text class="price-value">$2.99</text>
+      <text class="price-label">单次润色建议价</text>
+    </view>
+  </view>
+
+  <view class="panel">
+    <view class="field">
+      <text class="label">目标岗位</text>
+      <input class="input" value="{{role}}" placeholder="例如：咖啡师 / 前端实习 / 客服" bindinput="onRoleInput" />
+    </view>
+
+    <view class="field">
+      <text class="label">语言</text>
+      <view class="segments">
+        <button class="segment {{language === '中文' ? 'active' : ''}}" data-value="中文" bindtap="chooseLanguage">中文</button>
+        <button class="segment {{language === 'English' ? 'active' : ''}}" data-value="English" bindtap="chooseLanguage">English</button>
+      </view>
+    </view>
+
+    <view class="field">
+      <text class="label">润色方向</text>
+      <view class="segments three">
+        <button class="segment {{tone === '专业' ? 'active' : ''}}" data-value="专业" bindtap="chooseTone">专业</button>
+        <button class="segment {{tone === '简洁' ? 'active' : ''}}" data-value="简洁" bindtap="chooseTone">简洁</button>
+        <button class="segment {{tone === '有冲击力' ? 'active' : ''}}" data-value="有冲击力" bindtap="chooseTone">有冲击力</button>
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="label-row">
+        <text class="label">粘贴原简历内容</text>
+        <text class="counter">{{resume.length}} / 1200</text>
+      </view>
+      <textarea class="textarea" value="{{resume}}" maxlength="1200" placeholder="例如：我在奶茶店工作，负责点单、收银、做饮品、打扫卫生..." bindinput="onResumeInput" />
+    </view>
+
+    <button class="primary" bindtap="polishResume" loading="{{loading}}">生成润色版本</button>
+  </view>
+
+  <view class="result-panel" wx:if="{{polished}}">
+    <view class="result-head">
+      <text class="result-title">润色结果</text>
+      <button class="copy" bindtap="copyResult">复制</button>
+    </view>
+    <text class="result-text">{{polished}}</text>
+  </view>
+
+  <view class="sell-panel">
+    <text class="sell-title">怎么先赚 20 CAD</text>
+    <text class="sell-line">发给留学生群：我可以帮你把兼职/实习简历润色成中英双语版本，前 10 位 $5 CAD/份。</text>
+    <text class="sell-line">做 4 单就是 $20 CAD。这个小程序可以作为演示和交付工具。</text>
+  </view>
+</view>
