@@ -1,0 +1,15 @@
+{
+  "description": "Resume polishing WeChat Mini Program MVP",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.6.6",
+  "appid": "touristappid",
+  "projectname": "resume-polisher-miniprogram",
+  "condition": {}
+}
